@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Static Template</title>
+    <title>Leonardo Sartori</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
     <link href="style.css" rel="stylesheet" type="text/css" />
     <script
@@ -33,7 +33,6 @@
       <span style="font-size: 30px; cursor: pointer;" onclick="openNav()"
         >&#9776;</span
       >
-      <button onclick="getDiv()" class="pulse generate">Genera</button>
       <div id="autograph" class="center">
         <img name="image" alt="Scegli album" border="0" width="80%" />
         <img name="image1" width="50%" />
@@ -142,6 +141,7 @@
       onreadystatechange="if (this.readyState === 'complete') this.onload()"
     ></script>
     <script>
+      const BLACK = "black";
       const TRANSPARENT = "transparent";
       const PURPLE = "#503750";
       const LIGHT_BLU = "#a0c3d2";
@@ -209,7 +209,8 @@
         PINK_SKIN,
         BLUE,
         GREEN,
-        ORANGE
+        ORANGE,
+        BLACK
       ];
 
       createFooter(bg_colors);
@@ -232,7 +233,13 @@
           });
           div.appendChild(btn);
         }
-
+        var btn = document.createElement("button");
+        btn.setAttribute("class", "pulse generate");
+        btn.textContent = "Genera";
+        btn.addEventListener("click", function () {
+          getDiv();
+        });
+        div.appendChild(btn);
         document.getElementById("foot").appendChild(div);
       }
       downloadURI = function (uri, name) {
